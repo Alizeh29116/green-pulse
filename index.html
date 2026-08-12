@@ -3,140 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GreenPulse 🌱</title>
+  <title>GreenPulse - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style> body { font-family: 'Inter', sans-serif; } </style>
-</head>
-<body class="bg-[#ecfdf5]">
-  <div id="root"></div>
-
-  <script type="text/babel">
-    const { useState, useEffect } = React;
-
-    function App() {
-      const [aqi, setAqi] = useState(42);
-      const [noise, setNoise] = useState(58);
-      const [traffic, setTraffic] = useState(312);
-      const [temp, setTemp] = useState(24.6);
-      const [tab, setTab] = useState('sensors');
-      const [popup, setPopup] = useState(null);
-
-      // fake live data
-      useEffect(() => {
-        const timer = setInterval(() => {
-          setAqi(Math.floor(Math.random() * 25 + 35));
-          setNoise(Math.floor(Math.random() * 15 + 50));
-          setTraffic(Math.floor(Math.random() * 80 + 270));
-          setTemp((Math.random() * 2 + 24).toFixed(1));
-        }, 5000);
-        return () => clearInterval(timer);
-      }, []);
-
-      const StatCard = ({label, value, unit, note, color}) => (
-        <div className="bg-white p-5 rounded-2xl shadow-md hover:shadow-lg transition">
-          <p className="text-gray-500 text-sm">{label}</p>
-          <p className="text-3xl font-bold mt-1">{value}<span className="text-lg font-normal"> {unit}</span></p>
-          <p className={`text-xs mt-2 font-medium ${color}`}>{note}</p>
-        </div>
-      )
-
-      return (
-        <div className="min-h-screen p-4 md:p-8">
-          <div className="max-w-6xl mx-auto">
-            
-            {/* Header */}
-            <div className="mb-8">
-              <div className="flex items-center gap-3">
-                <span className="text-4xl">🌱</span>
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-800">GreenPulse</h1>
-              </div>
-              <p className="text-lg mt-2 text-gray-700 font-semibold">Good morning, Alizeh. Your street is breathing easier this week.</p>
-              <p className="text-gray-600">Together you've shared 12,480 readings this month. Here's what your neighborhood is telling us.</p>
-              <div className="flex gap-3 mt-3 flex-wrap">
-                <span className="bg-white px-4 py-2 rounded-full shadow text-sm">📡 34 sensors online</span>
-                <span className="bg-white px-4 py-2 rounded-full shadow text-sm">📱 218 phones contributing</span>
-              </div>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-              <StatCard label="Air Quality" value={aqi} unit="AQI" note="Good - cleanest week" color="text-green-600"/>
-              <StatCard label="Noise Level" value={noise} unit="dB" note="Calm on Maple Street" color="text-blue-600"/>
-              <StatCard label="Traffic Flow" value={traffic} unit="cars/h" note="Down 8% since new crossing" color="text-green-600"/>
-              <StatCard label="Temperature" value={temp} unit="°C" note="2.1° cooler under elms" color="text-orange-600"/>
-              <StatCard label="Park Usage" value="1.4k" unit="visits" note="Riverside Green thriving" color="text-green-600"/>
-            </div>
-
-            {/* Map + Suggestions */}
-            <div className="grid lg:grid-cols-3 gap-6">
-              
-              {/* Map */}
-              <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-md">
-                <h2 className="text-xl font-bold mb-1">Neighborhood live map</h2>
-                <p className="text-gray-500 text-sm mb-4">34 sensors and 218 phones streaming readings right now</p>
-                
-                <div className="flex gap-2 mb-4">
-                  {['sensors','phones','demo'].map(t => (
-                    <button key={t} onClick={() => setTab(t)}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                        tab === t ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-700'
-                      }`}>
-                      {t === 'sensors' && '📡 '}{t === 'phones' && '📱 '}{t === 'demo' && '📶 '}
-                      {t.charAt(0).toUpperCase() + t.slice(1)}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="bg-gradient-to-br from-green-100 to-emerald-200 h-80 rounded-xl flex items-center justify-center border-2 border-dashed border-green-300">
-                  <div className="text-center text-gray-700">
-                    <p className="text-5xl mb-2">🗺️</p>
-                    <p className="font-semibold">Live {tab} data</p>
-                    <p className="text-sm mt-1">Map updates every 5 seconds</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Suggestions */}
-              <div className="bg-white p-6 rounded-2xl shadow-md">
-                <h2 className="text-xl font-bold mb-1">✨ What the data suggests</h2>
-                <p className="text-gray-500 text-sm mb-4">Friendly nudges from your neighborhood</p>
-                
-                <div onClick={() => setPopup("Market Crossing runs 3° hotter. 12 trees here can reduce temp and AQI by 15%")}
-                  className="p-3 mb-3 border rounded-xl hover:bg-green-50 cursor-pointer">
-                  <p className="font-semibold">💡 Best spot for new trees</p>
-                </div>
-                <div onClick={() => setPopup("Take Maple Street instead of Main Rd. It's 12dB quieter during rush hour.")}
-                  className="p-3 mb-3 border rounded-xl hover:bg-green-50 cursor-pointer">
-                  <p className="font-semibold">💡 Quieter commute route</p>
-                </div>
-                <div onClick={() => setPopup("Riverside Green has 40% more visitors on weekends. Perfect for events!")}
-                  className="p-3 mb-3 border rounded-xl hover:bg-green-50 cursor-pointer">
-                  <p className="font-semibold">💡 Park alert</p>
-                </div>
-
-                {popup && (
-                  <div className="mt-4 p-4 bg-green-100 rounded-xl">
-                    <p className="text-sm">{popup}</p>
-                    <button onClick={() => setPopup(null)} className="text-xs text-green-700 mt-2 font-semibold">Close</button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <footer className="text-center text-gray-500 text-sm mt-12">
-              Built with 💚 for cleaner communities
-            </footer>
-          </div>
-        </div>
-      )
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071');
+      background-size: cover;
+      background-position: center;
     }
+  </style>
+</head>
+<body class="bg-white">
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />)
-  </script>
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img src="https://i.imgur.com/8Km9tLL.png" alt="logo" class="w-12 h-12"> <!-- leaf logo -->
+          <span class="text-2xl font-bold text-green-500">GreenPulse</span>
+        </div>
+
+        <!-- Menu -->
+        <nav class="hidden md:flex gap-8 text-sm font-semibold text-green-700">
+          <a href="#" class="hover:text-green-500">HOME</a>
+          <a href="#" class="hover:text-green-500">ABOUT</a>
+          <a href="#" class="hover:text-green-500">GREEN-FINANCE HUB</a>
+          <a href="#" class="hover:text-green-500">CARBON CREDIT</a>
+          <a href="#" class="hover:text-green-500">TOURISM</a>
+          <div class="relative group">
+            <button class="hover:text-green-500 flex items-center gap-1">ECO-FRIENDLY GAMES ▼</button>
+          </div>
+          <a href="#" class="hover:text-green-500">CONTACT</a>
+        </nav>
+
+        <!-- Join Button -->
+        <a href="#" class="hidden md:flex bg-green-500 hover:bg-green-600 text-white px-6 py-3 font-semibold items-center gap-2">
+          Join Now →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-white">
+    <div class="max-w-7xl mx-auto px-6 py-32 md:py-40">
+      <p class="text-green-400 font-bold text-sm tracking-widest mb-4">BEST ONLINE COURSES</p>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+        The Best Online <br> Sustainability Platform
+      </h1>
+      <p class="max-w-2xl text-base md:text-lg text-gray-200 mb-8">
+        GreenPulse is your gateway to a greener future, connecting individuals and organizations 
+        committed to environmental stewardship. Join a vibrant community dedicated to sustainable 
+        living, innovative solutions, and impactful change. Together, we can make every action 
+        count for a healthier planet.
+      </p>
+      <div class="flex gap-4">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 font-semibold">Read More</a>
+        <a href="#" class="bg-white hover:bg-gray-100 text-gray-800 px-8 py-3 font-semibold">Join Now</a>
+      </div>
+    </div>
+
+    <!-- Slider Arrows -->
+    <button class="absolute right-6 top-1/2 -translate-y-1/2 border border-white p-3 hover:bg-white hover:text-black">‹</button>
+    <button class="absolute right-6 top-[60%] -translate-y-1/2 border border-white p-3 hover:bg-white hover:text-black">›</button>
+  </section>
+
+  <!-- Back to top button -->
+  <a href="#" class="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded hover:bg-green-600">↑</a>
+
 </body>
 </html>
-
