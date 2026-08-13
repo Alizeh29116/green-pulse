@@ -3,32 +3,51 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
 <style>
   body{font-family:'Heebo', sans-serif; background:#f8fff9;}
-  .text-primary{color:#198754 !important}.btn-primary{background:#198754; border-color:#198754}
-  .navbar-brand h2{color:#198754 !important; font-weight:800}
-  .page-header{background: linear-gradient(rgba(24, 62, 47, 0.8), rgba(24, 62, 47, 0.8)), url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&w=1260'); background-size:cover; background-position:center; padding:100px 0;}
+.text-primary{color:#198754!important}.btn-primary{background:#198754; border-color:#198754}
+.navbar-brand h2{color:#198754!important; font-weight:800}
+.page-header{background: linear-gradient(rgba(24, 62, 47, 0.8), rgba(24, 62, 47, 0.8)), url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&w=1260'); background-size:cover; background-position:center; padding:100px 0;}
+.dest-card{background:#fff; border-radius:15px; overflow:hidden; box-shadow:0 8px 25px rgba(0,0,0,.1); transition:0.3s; border:1px solid #d4edda}
+.dest-card:hover{transform:translateY(-5px)}
+.dest-img{height:200px; object-fit:cover; width:100%}
+.threat-badge{background:#ffebee; color:#c62828; padding:5px 10px; border-radius:20px; font-size:12px; margin:3px}
+.solution-badge{background:#e8f5e9; color:#2e7d32; padding:5px 10px; border-radius:20px; font-size:12px; margin:3px}
+  #nearMeBox{background:linear-gradient(135deg, #198754, #20c997); color:#fff; border-radius:15px; padding:25px; text-align:center}
 </style></head>
 <body>
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0"> <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5"><h2 class="m-0 text-primary">🌱 GreenPulse</h2></a> 
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0"> <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5"><h2 class="m-0 text-primary">🌱 GreenPulse</h2></a>
 <button class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="navbarCollapse"><div class="navbar-nav ms-auto p-4 p-lg-0">
 <a href="index.html" class="nav-item nav-link">HOME</a><a href="about.html" class="nav-item nav-link">ABOUT</a><a href="green_finance.html" class="nav-item nav-link">GREEN-FINANCE</a><a href="credits.html" class="nav-item nav-link">CARBON CREDIT</a><a href="tourism.html" class="nav-item nav-link active">TOURISM</a>
 </div></div></nav>
 
 <div class="container-fluid page-header mb-5"><div class="container text-center">
-  <h1 class="display-3 text-white">Eco Tourism</h1><p class="text-white fs-5">Travel Green, Leave Only Footprints</p>
+  <h1 class="display-3 text-white">Eco Tourism</h1><p class="text-white fs-5">Travel Green, Learn & Protect</p>
 </div></div>
 
-<div class="container py-5"><div class="row g-4">
-  <div class="col-md-4"><img src="https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&w=600" class="img-fluid rounded mb-3"><h5>Forest Retreats</h5></div>
-  <div class="col-md-4"><img src="https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&w=600" class="img-fluid rounded mb-3"><h5>Mountain Eco Lodges</h5></div>
-  <div class="col-md-4"><img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&w=600" class="img-fluid rounded mb-3"><h5>Beach Cleanups</h5></div>
-</div></div>
+<!-- NEAR ME SECTION -->
+<div class="container mb-5">
+  <div id="nearMeBox">
+    <h3><i class="fa fa-map-marker-alt"></i> What's Happening Near You?</h3>
+    <p>Allow location to see environmental threats and solutions in your area</p>
+    <button class="btn btn-light btn-lg" onclick="getLocation()"><i class="fa fa-crosshairs"></i> Find Threats Near Me</button>
+    <div id="nearMeResult" class="mt-4 text-start d-none"></div>
+  </div>
+</div>
+
+<!-- 20 DESTINATIONS -->
+<div class="container py-5">
+  <h2 class="text-center mb-5">🌍 20 Eco Destinations to Explore</h2>
+  <div id="destinationsList" class="row g-4"></div>
+</div>
 
 <div class="container-fluid bg-dark text-light footer pt-5 mt-5"><div class="container py-5"><div class="row g-5">
-<div class="col-lg-6"><h4 class="text-white mb-3">Quick Links</h4><a class="d-block text-light" href="index.html">Home</a></div>
+<div class="col-lg-6"><h4 class="text-white mb-3">Quick Links</h4><a class="d-block text-light" href="green_finance.html">Green Finance</a></div>
 <div class="col-lg-6"><h4 class="text-white mb-3">Newsletter</h4><input class="form-control" placeholder="Your email"><button class="btn btn-primary mt-2">SignUp</button></div>
 </div></div><div class="container"><div class="copyright text-center py-3">&copy; GreenPulse 2026</div></div></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script><!-- EcoBot AI Assistant -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- EcoBot AI Assistant -->
 <style>
   #eco-chat-btn{position:fixed; bottom:90px; right:25px; width:60px; height:60px; background:#198754; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; cursor:pointer; z-index:9999; box-shadow:0 4px 20px rgba(25,135,84,.4); animation: pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,135,84,0.7)}70%{box-shadow:0 0 0 15px rgba(25,135,84,0)}100%{box-shadow:0 0 0 0 rgba(25,135,84,0)}}
@@ -42,100 +61,95 @@
 .msg-bot{background:#e8f5e9; color:#000; padding:10px 15px; border-radius:15px 15px 15px 5px; margin:8px 0; margin-right:40px}
 .msg-bot i{color:#198754; margin-right:5px}
 </style>
-
 <div id="eco-chat-btn">🌿</div>
-
-<div id="eco-chat-box">
-  <div id="eco-chat-header">
-    <span><i class="fa fa-leaf"></i> EcoBot Assistant</span>
-    <span id="eco-close" style="cursor:pointer">✖</span>
-  </div>
-  <div id="eco-chat-body">
-    <div class="msg-bot"><i class="fa fa-leaf"></i> Salam! I'm EcoBot 🌱<br>Ask me anything about environment, carbon credits, green investment or sustainability!</div>
-  </div>
-  <div id="eco-chat-input">
-    <input type="text" id="eco-user-input" placeholder="Ask about climate, recycling...">
-    <button id="eco-send"><i class="fa fa-paper-plane"></i></button>
-  </div>
-</div>
+<div id="eco-chat-box"><div id="eco-chat-header"><span><i class="fa fa-leaf"></i> EcoBot Assistant</span><span id="eco-close" style="cursor:pointer">✖</span></div><div id="eco-chat-body"><div class="msg-bot"><i class="fa fa-leaf"></i> Salam! Ask me about any destination or eco threat 🌱</div></div><div id="eco-chat-input"><input type="text" id="eco-user-input" placeholder="Ask about climate..."><button id="eco-send"><i class="fa fa-paper-plane"></i></button></div></div>
+<script>
+const ecoBtn = document.getElementById('eco-chat-btn'); const ecoBox = document.getElementById('eco-chat-box'); const ecoClose = document.getElementById('eco-close'); const ecoSend = document.getElementById('eco-send'); const ecoInput = document.getElementById('eco-user-input'); const ecoBody = document.getElementById('eco-chat-body');
+ecoBtn.onclick = () => ecoBox.style.display = 'flex'; ecoClose.onclick = () => ecoBox.style.display = 'none';
+const ecoReplies = {"threat": "😥 Main threats: Air pollution, Plastic waste, Deforestation. Solution: Plant trees, Reduce plastic, Use public transport."};
+function getEcoReply(userMsg){ userMsg = userMsg.toLowerCase(); for(let key in ecoReplies){ if(userMsg.includes(key)) return ecoReplies[key]; } return "🤔 Ask me about eco threats, species, or destinations! 🌱";}
+function addMsg(text, type){ ecoBody.innerHTML += `<div class="msg-${type}">${text}</div>`; ecoBody.scrollTop = ecoBody.scrollHeight; }
+function sendEcoMsg(){ let msg = ecoInput.value.trim(); if(msg === "") return; addMsg(msg, 'user'); ecoInput.value = ""; setTimeout(() => { addMsg(getEcoReply(msg), 'bot'); }, 600); }
+ecoSend.onclick = sendEcoMsg; ecoInput.addEventListener("keypress", function(e){ if(e.key === "Enter") sendEcoMsg(); });
+</script>
 
 <script>
-const ecoBtn = document.getElementById('eco-chat-btn');
-const ecoBox = document.getElementById('eco-chat-box');
-const ecoClose = document.getElementById('eco-close');
-const ecoSend = document.getElementById('eco-send');
-const ecoInput = document.getElementById('eco-user-input');
-const ecoBody = document.getElementById('eco-chat-body');
+// ===== 20 DESTINATIONS DATA =====
+const destinations = [
+  {name: "Hunza Valley, Pakistan", img:["https://images.pexels.com/photos/2132126/pexels-photo-2132126.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"Stunning mountain valley with glaciers and lakes. Famous for sustainable apricot farming.", species:"Snow Leopard, Himalayan Ibex, Marco Polo Sheep", threats:["Glacier Melting","Plastic Waste","Tourism Pressure"], solutions:["Carry reusable bottles","Support local guides","Donate to glacier fund"], map:"https://goo.gl/maps/hunza"},
+  {name: "Swat Valley, Pakistan", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"'Switzerland of Pakistan'. Lush forests, rivers and Buddhist heritage sites.", species:"Kashmir Markhor, Monal Pheasant, Trout", threats:["Deforestation","Water Pollution","Landslides"], solutions:["Plant trees","No littering in rivers","Use eco lodges"], map:"https://goo.gl/maps/swat"},
+  {name: "Fairy Meadows, Pakistan", img:["https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"Base camp for Nanga Parbat. One of world's most beautiful meadows.", species:"Brown Bear, Golden Eagle, Wildflowers", threats:["Waste from trekkers","Forest cutting","Climate change"], solutions:["Pack out trash","Stay on trails","Camp responsibly"], map:"https://goo.gl/maps/fairy"},
+  {name: "Deosai National Park", img:["https://images.pexels.com/photos/1624438/pexels-photo-1624438.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"'Land of Giants'. World's highest plateau. Home to Himalayan wildlife.", species:"Himalayan Brown Bear, Golden Marmot, Snow Cock", threats:["Poaching","Overgrazing","Climate impact"], solutions:["Support park rangers","No off-road driving","Report wildlife crime"], map:"https://goo.gl/maps/deosai"},
+  {name: "Hingol National Park", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Coastal desert with mud volcanoes and unique rock formations.", species:"Sindh Ibex, Houbara Bustard, Green Turtle", threats:["Oil spills","Hunting","Desertification"], solutions:["Beach cleanups","Respect wildlife","Save water"], map:"https://goo.gl/maps/hingol"},
+  {name: "Gorakh Hill, Sindh", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"'Murree of Sindh'. Cool hill station in Kirthar mountains.", species:"Sindh Ibex, Chinkara, Vultures", threats:["Water scarcity","Trash","Over-tourism"], solutions:["Carry water","No plastic","Visit off-season"], map:"https://goo.gl/maps/gorakh"},
+  {name: "Margalla Hills, Islamabad", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"National park right next to capital. Popular for hiking.", species:"Leopard, Barking Deer, 250 bird species", threats:["Urbanization","Wildfires","Air pollution"], solutions:["Join tree drives","Report fires","Carpool"], map:"https://goo.gl/maps/margalla"},
+  {name: "Lal Suhanra National Park", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Desert + forest + wetland ecosystem in Cholistan.", species:"Blackbuck, Houbara, Desert Fox", threats:["Desertification","Poaching","Water loss"], solutions:["Support conservation","No litter","Plant native trees"], map:"https://goo.gl/maps/lal"},
+  {name: "Chitral Valley", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Gateway to Kalash valleys. Rich culture and biodiversity.", species:"Snow Leopard, Markhor, Golden Oriole", threats:["Glacier melt","Habitat loss","Poverty"], solutions:["Eco-tourism","Support locals","Renewable energy"], map:"https://goo.gl/maps/chitral"},
+  {name: "Murree Hills", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Closest hill station to Islamabad. Pine forests and viewpoints.", species:"Rhesus Monkey, Pheasants, Pine trees", threats:["Deforestation","Traffic","Waste"], solutions:["Use shuttle buses","No plastic bags","Plant pine"], map:"https://goo.gl/maps/murree"},
+  {name: "Amazon Rainforest", img:["https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg","https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"], info:"Largest rainforest. Produces 20% of world's oxygen.", species:"Jaguar, Macaw, Sloth, 10% of species", threats:["Deforestation","Fires","Mining"], solutions:["Buy sustainable products","Donate","Reduce paper"], map:"https://goo.gl/maps/amazon"},
+  {name: "Great Barrier Reef", img:["https://images.pexels.com/photos/847393/pexels-photo-847393.jpeg","https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg"], info:"World's largest coral reef system. Marine biodiversity hotspot.", species:"Coral, Clownfish, Sea Turtle, Shark", threats:["Coral bleaching","Plastic","Overfishing"], solutions:["No plastic","Sunscreen safe","Support marine parks"], map:"https://goo.gl/maps/reef"},
+  {name: "Yellowstone National Park", img:["https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"First national park. Geysers, hot springs, wildlife.", species:"Bison, Wolf, Grizzly Bear, Elk", threats:["Tourism pressure","Wildfires","Invasive species"], solutions:["Stay on boardwalks","No feeding wildlife","Volunteer"], map:"https://goo.gl/maps/yellow"},
+  {name: "Serengeti National Park", img:["https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"Famous for Great Migration of wildebeest.", species:"Lion, Elephant, Giraffe, Wildebeest", threats:["Poaching","Drought","Human conflict"], solutions:["Anti-poaching funds","Sustainable tourism","Water projects"], map:"https://goo.gl/maps/seren"},
+  {name: "Galapagos Islands", img:["https://images.pexels.com/photos/847393/pexels-photo-847393.jpeg","https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg"], info:"Unique species that inspired Darwin's theory.", species:"Giant Tortoise, Marine Iguana, Blue-footed Booby", threats:["Invasive species","Tourism","Fishing"], solutions:["Certified tours only","No touching animals","Biosecurity"], map:"https://goo.gl/maps/galap"},
+  {name: "Costa Rica Rainforest", img:["https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg","https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"], info:"25% land protected. Leader in ecotourism.", species:"Sloth, Toucan, Frog, Monkey", threats:["Deforestation","Climate","Pesticides"], solutions:["Stay in eco-lodges","Coffee direct trade","Carbon neutral travel"], map:"https://goo.gl/maps/costa"},
+  {name: "Iceland Nature", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Land of glaciers, volcanoes, waterfalls and northern lights.", species:"Arctic Fox, Puffin, Whale", threats:["Glacier melt","Tourism impact","Geothermal"], solutions:["Leave no trace","Respect signs","Carbon offset flight"], map:"https://goo.gl/maps/iceland"},
+  {name: "Borneo Rainforest", img:["https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg","https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg"], info:"One of oldest rainforests. Orangutan habitat.", species:"Orangutan, Proboscis Monkey, Rafflesia", threats:["Palm oil","Logging","Fires"], solutions:["No palm oil products","Support NGOs","Sustainable wood"], map:"https://goo.gl/maps/borneo"},
+  {name: "Swiss Alps", img:["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg","https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"], info:"Sustainable mountain tourism model.", species:"Alpine Ibex, Marmot, Edelweiss", threats:["Glacier retreat","Ski impact","Transport"], solutions:["Public transport","Green hotels","Waste recycling"], map:"https://goo.gl/maps/alps"},
+  {name: "New Zealand Fjords", img:["https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg","https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"], info:"Milford Sound. Pristine fjords and forests.", species:"Kiwi, Kea Parrot, Dolphin", threats:["Invasive predators","Tourism","Pollution"], solutions:["Predator free 2050","Eco cruises","Track care"], map:"https://goo.gl/maps/nz"}
+];
 
-ecoBtn.onclick = () => ecoBox.style.display = 'flex';
-ecoClose.onclick = () => ecoBox.style.display = 'none';
+function loadDestinations(){
+  let html = "";
+  destinations.forEach(d => {
+    html += `<div class="col-md-6 col-lg-4">
+      <div class="dest-card">
+        <div id="carousel${d.name.replace(/\s/g,'')}" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">`+
+          d.img.map((img,i)=>`<div class="carousel-item ${i==0?'active':''}"><img src="${img}" class="dest-img"></div>`).join('')+
+          `</div></div>
+        <div class="p-3">
+          <h5>${d.name}</h5>
+          <p class="small">${d.info}</p>
+          <p><strong><i class="fa fa-paw text-primary"></i> Species:</strong> ${d.species}</p>
+          <div><strong><i class="fa fa-exclamation-triangle text-danger"></i> Threats:</strong><br>`+
+          d.threats.map(t=>`<span class="threat-badge">${t}</span>`).join('')+
+          `</div><div class="mt-2"><strong><i class="fa fa-lightbulb text-success"></i> Solutions:</strong><br>`+
+          d.solutions.map(s=>`<span class="solution-badge">${s}</span>`).join('')+
+          `</div>
+          <a href="${d.map}" target="_blank" class="btn btn-primary btn-sm w-100 mt-3"><i class="fa fa-map"></i> View on Google Map</a>
+        </div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('destinationsList').innerHTML = html;
+}
+loadDestinations();
 
-const ecoReplies = {
-  // BASIC
-  "hello": "👋 Hello! I'm EcoBot 🌱 How can I help you go green today?",
-  "hi": "👋 Hi there! Ask me anything about environment!",
-  "salam": "🌱 Wa Alaikum Salam! Environment ke bare mein kya jan'na chahte ho?",
-
-  // CLIMATE
-  "climate change": "🔥 Climate change is global warming caused by CO2. Solution: Renewable energy, plant trees, reduce waste, use public transport.",
-  "global warming": "🌡️ Global warming = Earth getting hotter due to greenhouse gases. It causes floods, heatwaves. We must cut emissions!",
-  "co2": "💨 CO2 is the main greenhouse gas. Trees absorb it. 1 tree = 22kg CO2/year",
-
-  // GREEN FINANCE
-  "green investment": "💚 Green investment = Money in solar, wind, EV, reforestation. Good returns + good for planet. Check our Green Finance page!",
-  "solar": "☀️ Solar is clean energy from sun. Low cost now. Investing in solar projects helps reduce carbon.",
-  "wind": "💨 Wind energy is free and renewable. Wind farms produce zero pollution.",
-
-  // CARBON
-  "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. Companies buy them to become carbon neutral. You can buy on our Carbon Credit page!",
-  "carbon footprint": "👣 Carbon footprint = Total CO2 you produce. Reduce by: less car, less meat, save electricity.",
-
-  // RECYCLING & WASTE
-  "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees and 7000 gallons water.",
-  "plastic": "🚫 Plastic takes 450 years to decompose! Use cloth bag, steel bottle, avoid single-use plastic.",
-  "compost": "🍌 Compost = Turning food waste into fertilizer. Put veggie peels in soil, it becomes plant food in 2 months!",
-
-  // WATER & TREES
-  "water": "💧 Save water: 5 min shower, fix leaks, reuse water for plants. 1 dripping tap wastes 3000 gallons/year!",
-  "tree": "🌳 Plant trees! They give oxygen, shade, and absorb CO2. Join our Eco Tourism page to plant one.",
-  "deforestation": "🪵 Deforestation causes climate change and animal loss. Solution: Plant more, use recycled paper.",
-
-  // GAMES & TOURISM
-  "game": "🎮 Eco Games: 1. Carbon Footprint Quiz 2. Recycle Sorter 3. Plant a Tree Sim. Check About page!",
-  "eco tourism": "🏞️ Eco Tourism = Travel without harming nature. Visit forests, mountains, beaches. Book on Tourism page!",
-
-  // POLLUTION
-  "pollution": "😷 Pollution types: Air, Water, Land. Solution: EVs, water filters, no littering, plant trees.",
-  "air pollution": "🌫️ Air pollution causes asthma. Solution: Plant trees, use CNG, no burning trash."
-};
-
-function getEcoReply(userMsg){
-  userMsg = userMsg.toLowerCase();
-
-  // smart search: agar jumle mein lafz hai to jawab de do
-  for(let key in ecoReplies){
-    if(userMsg.includes(key)) return ecoReplies[key];
-  }
-
-  // agar kuch na mile
-  return "🤔 Hmm, I didn't get that. I specialize in: climate change, carbon credits, recycling, green investment, solar, water, trees, pollution, eco games. Try asking me one of these! 🌱";
+// ===== NEAR ME FUNCTION =====
+function getLocation(){
+  if(navigator.geolocation){
+    document.getElementById('nearMeResult').innerHTML = "<p>📍 Getting your location...</p>";
+    document.getElementById('nearMeResult').classList.remove('d-none');
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { alert("Geolocation not supported"); }
 }
 
-function addMsg(text, type){
-  ecoBody.innerHTML += `<div class="msg-${type}">${text}</div>`;
-  ecoBody.scrollTop = ecoBody.scrollHeight;
+function showPosition(position){
+  let lat = position.coords.latitude; let lon = position.coords.longitude;
+  let threats = [
+    {name:"Air Pollution", sol:"Use public transport, Plant trees, Reduce car use"},
+    {name:"Plastic Waste", sol:"Carry cloth bag, Refuse single-use plastic"},
+    {name:"Water Scarcity", sol:"5 min showers, Fix leaks, Reuse water"},
+    {name:"Deforestation", sol:"Use recycled paper, Plant 1 tree this month"}
+  ];
+  let html = `<h5>📍 Your Area: Lat ${lat.toFixed(2)}, Lon ${lon.toFixed(2)}</h5><p>Common environmental threats near you:</p>`;
+  threats.forEach(t=>{
+    html += `<div class="alert alert-light"><strong>${t.name}</strong><br><small>💡 Solution: ${t.sol}</small></div>`;
+  });
+  html += `<a href="https://www.google.com/maps/search/environmental+issues/@${lat},${lon},12z" target="_blank" class="btn btn-light btn-sm"><i class="fa fa-map"></i> Open in Google Maps</a>`;
+  document.getElementById('nearMeResult').innerHTML = html;
 }
 
-function sendEcoMsg(){
-  let msg = ecoInput.value.trim();
-  if(msg === "") return;
-  addMsg(msg, 'user');
-  ecoInput.value = "";
-  setTimeout(() => {
-    addMsg(getEcoReply(msg), 'bot');
-  }, 600);
-}
-
-ecoSend.onclick = sendEcoMsg;
-ecoInput.addEventListener("keypress", function(e){ if(e.key === "Enter") sendEcoMsg(); });
-</script></body></html>
+function showError(error){ document.getElementById('nearMeResult').innerHTML = "<p>⚠️ Please allow location access to see threats near you.</p>"; }
+</script>
+</body></html>
