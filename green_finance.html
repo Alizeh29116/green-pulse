@@ -152,23 +152,54 @@ ecoBtn.onclick = () => ecoBox.style.display = 'flex';
 ecoClose.onclick = () => ecoBox.style.display = 'none';
 
 const ecoReplies = {
-  "carbon credit": "🌍 Carbon credits let companies offset emissions. 1 credit = 1 ton of CO2 reduced. You can buy them on our Carbon Credit page to become carbon neutral!",
-  "green investment": "💚 Green investment means funding eco projects like solar, wind, reforestation. They give good returns AND help the planet. Check our Green Finance page!",
-  "climate change": "🔥 Climate change is caused by greenhouse gases. We can fight it by: 1. Using renewable energy 2. Planting trees 3. Reducing waste 4. Buying carbon credits",
-  "recycling": "♻️ Recycle: Reduce, Reuse, Recycle! Separate plastic, paper, glass. It saves 95% energy vs making new products.",
-  "sustainability": "🌱 Sustainability means meeting our needs without harming future generations. Small steps: save water, use public transport, eat less meat.",
-  "eco tourism": "🏞️ Eco tourism is travel that protects nature. We promote forest retreats, mountain lodges, and beach cleanups. Visit our Tourism page!",
-  "solar": "☀️ Solar energy is clean and free! Investing in solar projects helps reduce carbon and gives stable income.",
-  "tree": "🌳 One tree absorbs 22kg of CO2 per year. Planting trees is the easiest way to fight climate change!",
-  "default": "🤔 Great question! I specialize in environment topics. Try asking about: carbon credits, green investment, recycling, climate change, or sustainability. Or check our pages above!"
+  // BASIC
+  "hello": "👋 Hello! I'm EcoBot 🌱 How can I help you go green today?",
+  "hi": "👋 Hi there! Ask me anything about environment!",
+  "salam": "🌱 Wa Alaikum Salam! Environment ke bare mein kya jan'na chahte ho?",
+
+  // CLIMATE
+  "climate change": "🔥 Climate change is global warming caused by CO2. Solution: Renewable energy, plant trees, reduce waste, use public transport.",
+  "global warming": "🌡️ Global warming = Earth getting hotter due to greenhouse gases. It causes floods, heatwaves. We must cut emissions!",
+  "co2": "💨 CO2 is the main greenhouse gas. Trees absorb it. 1 tree = 22kg CO2/year",
+
+  // GREEN FINANCE
+  "green investment": "💚 Green investment = Money in solar, wind, EV, reforestation. Good returns + good for planet. Check our Green Finance page!",
+  "solar": "☀️ Solar is clean energy from sun. Low cost now. Investing in solar projects helps reduce carbon.",
+  "wind": "💨 Wind energy is free and renewable. Wind farms produce zero pollution.",
+
+  // CARBON
+  "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. Companies buy them to become carbon neutral. You can buy on our Carbon Credit page!",
+  "carbon footprint": "👣 Carbon footprint = Total CO2 you produce. Reduce by: less car, less meat, save electricity.",
+
+  // RECYCLING & WASTE
+  "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees and 7000 gallons water.",
+  "plastic": "🚫 Plastic takes 450 years to decompose! Use cloth bag, steel bottle, avoid single-use plastic.",
+  "compost": "🍌 Compost = Turning food waste into fertilizer. Put veggie peels in soil, it becomes plant food in 2 months!",
+
+  // WATER & TREES
+  "water": "💧 Save water: 5 min shower, fix leaks, reuse water for plants. 1 dripping tap wastes 3000 gallons/year!",
+  "tree": "🌳 Plant trees! They give oxygen, shade, and absorb CO2. Join our Eco Tourism page to plant one.",
+  "deforestation": "🪵 Deforestation causes climate change and animal loss. Solution: Plant more, use recycled paper.",
+
+  // GAMES & TOURISM
+  "game": "🎮 Eco Games: 1. Carbon Footprint Quiz 2. Recycle Sorter 3. Plant a Tree Sim. Check About page!",
+  "eco tourism": "🏞️ Eco Tourism = Travel without harming nature. Visit forests, mountains, beaches. Book on Tourism page!",
+
+  // POLLUTION
+  "pollution": "😷 Pollution types: Air, Water, Land. Solution: EVs, water filters, no littering, plant trees.",
+  "air pollution": "🌫️ Air pollution causes asthma. Solution: Plant trees, use CNG, no burning trash."
 };
 
 function getEcoReply(userMsg){
   userMsg = userMsg.toLowerCase();
+
+  // smart search: agar jumle mein lafz hai to jawab de do
   for(let key in ecoReplies){
     if(userMsg.includes(key)) return ecoReplies[key];
   }
-  return ecoReplies["default"];
+
+  // agar kuch na mile
+  return "🤔 Hmm, I didn't get that. I specialize in: climate change, carbon credits, recycling, green investment, solar, water, trees, pollution, eco games. Try asking me one of these! 🌱";
 }
 
 function addMsg(text, type){
@@ -183,7 +214,7 @@ function sendEcoMsg(){
   ecoInput.value = "";
   setTimeout(() => {
     addMsg(getEcoReply(msg), 'bot');
-  }, 800);
+  }, 600);
 }
 
 ecoSend.onclick = sendEcoMsg;
