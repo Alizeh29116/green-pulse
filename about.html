@@ -56,7 +56,9 @@
             <div class="text-center mt-4">
                 <h5>🎮 Try Our Eco Games</h5>
                 <p>Learn sustainability while having fun!</p>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal">Play Carbon Footprint Quiz</button>
+               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal">
+  Play Carbon Footprint Quiz
+</button>
             </div>
 
         </div>
@@ -263,4 +265,32 @@ document.getElementById('submitQuiz').onclick = function(){
   document.getElementById('submitQuiz').style.display = 'none';
 }
 </script>
-</script></body></html>
+  <!-- QUIZ MODAL HTML - BODY KE END MEIN -->
+<div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">🌱 Carbon Footprint Quiz</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="quiz-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="submitQuiz">Submit & See Score</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOTSTRAP JS - YE SAB SE LAST MEIN HONA CHAHIYE -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- TUMHARA ECOBOT + QUIZ SCRIPT -->
+<script>
+// ECOBOT CODE
+// QUIZ CODE
+</script>
+
+</body>
+</html>
+</body></html>
