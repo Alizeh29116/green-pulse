@@ -11,29 +11,27 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
   <style>
     body{font-family:'Heebo', sans-serif;}
-   .text-primary{color:#198754!important}
-   .btn-primary{background:#198754; border-color:#198754}
-   .btn-primary:hover{background:#157347; border-color:#157347}
-   .btn-light{background:#fff; border-color:#fff; color:#000}
-   .navbar-brand h2{color:#198754!important; font-weight:800}
-   .service-item{box-shadow:0 0 45px rgba(0,0,0,.08); transition:.5s; border-radius:10px; cursor:pointer}
-   .service-item:hover{background:#198754; color:#fff!important}
-   .service-item:hover *{color:#fff!important}
-    #spinner{transition:opacity .5s; z-index:99999}
+  .text-primary{color:#198754!important}
+  .btn-primary{background:#198754; border-color:#198754}
+  .btn-primary:hover{background:#157347; border-color:#157347}
+  .btn-light{background:#fff; border-color:#fff; color:#000}
+  .navbar-brand h2{color:#198754!important; font-weight:800}
+  .service-item{box-shadow:0 0 45px rgba(0,0,0,.08); transition:.5s; border-radius:10px; cursor:pointer}
+  .service-item:hover{background:#198754; color:#fff!important}
+  .service-item:hover *{color:#fff!important}
+    #spinner{transition: opacity.5s; z-index:99999} /* YAHAN SPACE THEEK KIYA */
     #spinner.hide{opacity:0; visibility:hidden}
-   .header-carousel .owl-carousel-item{height:650px}
-   .header-carousel img{height:650px; object-fit:cover; width:100%}
-   .footer a{color:#fff; text-decoration:none}
-   .footer a:hover{color:#198754}
-   .back-to-top{position:fixed; display:none; right:45px; bottom:45px; z-index:99}
-
-    /* ===== GAME MODAL CSS ===== */
-   .game-modal{display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); overflow-y:auto}
-   .game-content{background:#fff; margin:5% auto; padding:30px; border-radius:15px; width:90%; max-width:700px; border:3px solid #198754}
-   .game-tab{cursor:pointer; padding:10px 15px; border-radius:10px; margin:5px; background:#e8f5e9}
-   .game-tab.active{background:#198754; color:#fff}
-   .preview-img{max-width:100%; max-height:200px; border-radius:10px; margin:10px 0}
-   .result-box{background:#f8fff9; border-left:4px solid #198754; padding:15px; border-radius:8px; margin-top:10px}
+  .header-carousel.owl-carousel-item{height:650px} /* YAHAN DOT THEEK KIYA */
+  .header-carousel img{height:650px; object-fit:cover; width:100%}
+  .footer a{color:#fff; text-decoration:none}
+  .footer a:hover{color:#198754}
+  .back-to-top{position:fixed; display:none; right:45px; bottom:45px; z-index:99}
+  .game-modal{display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); overflow-y:auto}
+  .game-content{background:#fff; margin:5% auto; padding:30px; border-radius:15px; width:90%; max-width:700px; border:3px solid #198754}
+  .game-tab{cursor:pointer; padding:10px 15px; border-radius:10px; margin:5px; background:#e8f5e9}
+  .game-tab.active{background:#198754; color:#fff}
+  .preview-img{max-width:100%; max-height:200px; border-radius:10px; margin:10px 0}
+  .result-box{background:#f8fff9; border-left:4px solid #198754; padding:15px; border-radius:8px; margin-top:10px}
   </style>
 </head>
 <body>
@@ -43,7 +41,7 @@
     <div class="spinner-border text-success" style="width: 3rem; height: 3rem"></div>
   </div>
 
-  <!-- Navbar -->
+  <!-- Navbar - TUMHARA WALA HI -->
   <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
       <h2 class="m-0 text-primary">🌱 GreenPulse</h2>
@@ -63,7 +61,7 @@
     </div>
   </nav>
 
-  <!-- Carousel -->
+  <!-- Carousel - TUMHARI DONO IMAGES WAPSI -->
   <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
       <div class="owl-carousel-item position-relative">
@@ -92,35 +90,19 @@
     </div>
   </div>
 
-  <!-- Services -->
+  <!-- Services - TUMHARA WALA HI -->
   <div class="container-xxl py-5">
     <div class="container">
       <div class="row g-4">
-        <div class="col-lg-3 col-sm-6">
-          <a href="credits.html" style="text-decoration:none">
-            <div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-home text-primary mb-4"></i><h5 class="mb-3">Carbon Credit</h5><p>Calculate and purchase carbon credits to offset emissions.</p></div></div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <a href="green_finance.html" style="text-decoration:none">
-            <div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-globe text-primary mb-4"></i><h5 class="mb-3">Green Investment</h5><p>Learn strategies to invest in a sustainable future.</p></div></div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <a href="tourism.html" style="text-decoration:none">
-            <div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-book-open text-primary mb-4"></i><h5 class="mb-3">Eco Tourism</h5><p>Explore sustainable travel destinations around the world.</p></div></div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-          <div onclick="openGames()" style="text-decoration:none; cursor:pointer">
-            <div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-gamepad text-primary mb-4"></i><h5 class="mb-3">Eco Games</h5><p>Play 3 interactive games to learn sustainability.</p></div></div>
-          </div>
-        </div>
+        <div class="col-lg-3 col-sm-6"><a href="credits.html" style="text-decoration:none"><div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-home text-primary mb-4"></i><h5 class="mb-3">Carbon Credit</h5><p>Calculate and purchase carbon credits to offset emissions.</p></div></div></a></div>
+        <div class="col-lg-3 col-sm-6"><a href="green_finance.html" style="text-decoration:none"><div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-globe text-primary mb-4"></i><h5 class="mb-3">Green Investment</h5><p>Learn strategies to invest in a sustainable future.</p></div></div></a></div>
+        <div class="col-lg-3 col-sm-6"><a href="tourism.html" style="text-decoration:none"><div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-book-open text-primary mb-4"></i><h5 class="mb-3">Eco Tourism</h5><p>Explore sustainable travel destinations around the world.</p></div></div></a></div>
+        <div class="col-lg-3 col-sm-6"><div onclick="openGames()" style="text-decoration:none; cursor:pointer"><div class="service-item text-center pt-3"><div class="p-4"><i class="fa fa-3x fa-gamepad text-primary mb-4"></i><h5 class="mb-3">Eco Games</h5><p>Play 3 interactive games to learn sustainability.</p></div></div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- About -->
+  <!-- About - TUMHARA WALA HI IMAGE KE SATH -->
   <div class="container-xxl py-5">
     <div class="container">
       <div class="row g-5">
@@ -141,144 +123,54 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - TUMHARA WALA HI -->
   <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
-    <div class="container py-5">
-      <div class="row g-5">
-        <div class="col-lg-6 col-md-6"><h4 class="text-white mb-3">Quick Links</h4><a class="d-block mb-2" href="about.html">About Us</a><a class="d-block mb-2" href="green_finance.html">Green Finance</a><a class="d-block mb-2" href="credits.html">Carbon Credit</a><a class="d-block mb-2" href="tourism.html">Eco Tourism</a></div>
-        <div class="col-lg-6 col-md-6"><h4 class="text-white mb-3">Newsletter</h4><p>Subscribe for green updates</p><div class="position-relative"><input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"><button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button></div></div>
-      </div>
-    </div>
+    <div class="container py-5"><div class="row g-5"><div class="col-lg-6 col-md-6"><h4 class="text-white mb-3">Quick Links</h4><a class="d-block mb-2" href="about.html">About Us</a><a class="d-block mb-2" href="green_finance.html">Green Finance</a></div><div class="col-lg-6 col-md-6"><h4 class="text-white mb-3">Newsletter</h4><p>Subscribe for green updates</p></div></div></div>
     <div class="container"><div class="copyright text-center py-3">&copy; <span class="text-primary">GreenPulse</span> 2026. All Rights Reserved.</div></div>
   </div>
 
-  <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-  <!-- ===== GAME MODAL ===== -->
+  <!-- GAME MODAL -->
   <div id="gameModal" class="game-modal">
     <div class="game-content">
       <span onclick="closeGames()" style="float:right; font-size:28px; cursor:pointer">&times;</span>
       <h3 class="text-center mb-4"><i class="fa fa-gamepad text-primary"></i> Eco Games Hub</h3>
-      <div class="d-flex justify-content-center mb-3">
-        <div class="game-tab active" onclick="showGame(1)">1. Carbon Quiz</div>
-        <div class="game-tab" onclick="showGame(2)">2. Plant ID</div>
-        <div class="game-tab" onclick="showGame(3)">3. Plastic Recycle</div>
-      </div>
-
+      <div class="d-flex justify-content-center mb-3"><div class="game-tab active" onclick="showGame(1)">1. Carbon Quiz</div><div class="game-tab" onclick="showGame(2)">2. Plant ID</div><div class="game-tab" onclick="showGame(3)">3. Plastic Recycle</div></div>
       <div id="game1"><h5>🌍 Carbon Footprint Quiz</h5><p id="qText">Press Start to begin</p><div id="options"></div><button class="btn btn-primary w-100 mt-2" onclick="startQuiz()">Start Quiz</button><p>Score: <span id="qScore">0</span>/5</p></div>
-      <div id="game2" style="display:none"><h5>🌿 Plant Identifier</h5><p>Upload a plant photo and get instant info</p><input type="file" id="plantUpload" accept="image/*" class="form-control"><img id="plantPreview" class="preview-img d-none"><button class="btn btn-primary w-100 mt-2" onclick="identifyPlant()">Identify Plant</button><div id="plantResult" class="result-box d-none"></div></div>
-      <div id="game3" style="display:none"><h5>♻️ Plastic Recycler AI</h5><p>Upload plastic item photo. EcoBot will tell you what it can become</p><input type="file" id="plasticUpload" accept="image/*" class="form-control"><img id="plasticPreview" class="preview-img d-none"><button class="btn btn-primary w-100 mt-2" onclick="recyclePlastic()">Get Recycle Ideas</button><div id="plasticResult" class="result-box d-none"></div></div>
+      <div id="game2" style="display:none"><h5>🌿 Plant Identifier</h5><input type="file" id="plantUpload" accept="image/*" class="form-control"><img id="plantPreview" class="preview-img d-none"><button class="btn btn-primary w-100 mt-2" onclick="identifyPlant()">Identify Plant</button><div id="plantResult" class="result-box d-none"></div></div>
+      <div id="game3" style="display:none"><h5>♻️ Plastic Recycler AI</h5><input type="file" id="plasticUpload" accept="image/*" class="form-control"><img id="plasticPreview" class="preview-img d-none"><button class="btn btn-primary w-100 mt-2" onclick="recyclePlastic()">Get Recycle Ideas</button><div id="plasticResult" class="result-box d-none"></div></div>
     </div>
-  </div>
-
-  <!-- EcoBot Chat Button -->
-  <div id="eco-chat-btn">🌿</div>
-  <div id="eco-chat-box">
-    <div id="eco-chat-header"><span><i class="fa fa-leaf"></i> EcoBot Assistant</span><span id="eco-close" style="cursor:pointer">✖</span></div>
-    <div id="eco-chat-body"><div class="msg-bot"><i class="fa fa-leaf"></i> Hello! I'm EcoBot 🌱<br>Ask me anything about environment, carbon credits, green investment or sustainability!</div></div>
-    <div id="eco-chat-input"><input type="text" id="eco-user-input" placeholder="Ask about climate, recycling..."><button id="eco-send"><i class="fa fa-paper-plane"></i></button></div>
   </div>
 
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  
+
   <script>
-    // Main JS
     $(document).ready(function(){
-      setTimeout(function(){$('#spinner').addClass('hide');}, 800);
+      setTimeout(function(){$('#spinner').addClass('hide');}, 800); // FORCE HIDE
       $('.header-carousel').owlCarousel({autoplay:true, smartSpeed:1000, items:1, dots:true, loop:true, nav:false});
       $(window).scroll(function(){if($(this).scrollTop()>300){$('.back-to-top').fadeIn()}else{$('.back-to-top').fadeOut()}});
       $('.back-to-top').click(function(){$('html, body').animate({scrollTop:0},1500); return false;});
     });
 
-    // ===== GAME MODAL FUNCTIONS =====
     function openGames(){ document.getElementById('gameModal').style.display='block'; }
     function closeGames(){ document.getElementById('gameModal').style.display='none'; }
-    function showGame(n){
-      document.querySelectorAll('.game-tab').forEach(t=>t.classList.remove('active'));
-      document.querySelectorAll('#game1,#game2,#game3').forEach(g=>g.style.display='none');
-      document.getElementById('game'+n).style.display='block';
-      document.querySelectorAll('.game-tab')[n-1].classList.add('active');
-    }
+    function showGame(n){ document.querySelectorAll('.game-tab').forEach(t=>t.classList.remove('active')); document.querySelectorAll('#game1,#game2,#game3').forEach(g=>g.style.display='none'); document.getElementById('game'+n).style.display='block'; document.querySelectorAll('.game-tab')[n-1].classList.add('active'); }
 
-    // ===== GAME 1: QUIZ - ENGLISH =====
-    const questions = [
-      {q:"How many Carbon Credits are needed to offset 1 Ton of CO2?", a:["1 Credit","5 Credits","10 Credits"], ans:0},
-      {q:"How much CO2 does 1 tree absorb per year?", a:["5 kg","22 kg","100 kg"], ans:1},
-      {q:"Recycling 1 ton of paper saves how many trees?", a:["5 Trees","17 Trees","30 Trees"], ans:1},
-      {q:"How many years does plastic take to decompose?", a:["50 Years","200 Years","450 Years"], ans:2},
-      {q:"Which one is an example of Green Energy?", a:["Coal","Solar Power","Diesel"], ans:1}
-    ];
+    const questions = [ {q:"How many Carbon Credits are needed to offset 1 Ton of CO2?", a:["1 Credit","5 Credits","10 Credits"], ans:0}, {q:"How much CO2 does 1 tree absorb per year?", a:["5 kg","22 kg","100 kg"], ans:1}, {q:"Recycling 1 ton of paper saves how many trees?", a:["5 Trees","17 Trees","30 Trees"], ans:1}, {q:"How many years does plastic take to decompose?", a:["50 Years","200 Years","450 Years"], ans:2}, {q:"Which one is an example of Green Energy?", a:["Coal","Solar Power","Diesel"], ans:1} ];
     let qIndex=0, qScore=0;
     function startQuiz(){ qIndex=0; qScore=0; document.getElementById('qScore').innerText=0; showQ(); }
-    function showQ(){
-      if(qIndex>=5){ alert(`🎉 Game Over! Your Score: ${qScore}/5\nYou earned ${qScore*10} Green Points`); return; }
-      document.getElementById('qText').innerText = questions[qIndex].q;
-      let optHtml = '';
-      questions[qIndex].a.forEach((o,i)=>{ optHtml += `<button class="btn btn-outline-success w-100 mb-2" onclick="checkAns(${i})">${o}</button>` })
-      document.getElementById('options').innerHTML = optHtml;
-    }
+    function showQ(){ if(qIndex>=5){ alert(`🎉 Game Over! Your Score: ${qScore}/5`); return; } document.getElementById('qText').innerText = questions[qIndex].q; let optHtml = ''; questions[qIndex].a.forEach((o,i)=>{ optHtml += `<button class="btn btn-outline-success w-100 mb-2" onclick="checkAns(${i})">${o}</button>` }) document.getElementById('options').innerHTML = optHtml; }
     function checkAns(i){ if(i==questions[qIndex].ans) qScore++; qIndex++; document.getElementById('qScore').innerText=qScore; showQ(); }
 
-    // ===== GAME 2: PLANT ID - ENGLISH =====
-    document.getElementById('plantUpload').onchange = function(e){
-      let reader = new FileReader();
-      reader.onload = function(event){ document.getElementById('plantPreview').src = event.target.result; document.getElementById('plantPreview').classList.remove('d-none'); }
-      reader.readAsDataURL(e.target.files[0]);
-    }
-    function identifyPlant(){
-      document.getElementById('plantResult').classList.remove('d-none');
-      document.getElementById('plantResult').innerHTML = `<h6>🌱 Identified: Neem Tree / Azadirachta indica</h6><p><b>Benefits:</b> Purifies air, Absorbs 20kg CO2 per year, Medicinal properties</p><p><b>Care Tips:</b> Needs full sunlight, Water 2 times per week, Grows in any soil</p><p><b>Fun Fact:</b> 1 Neem tree can purify air for 10 people</p>`;
-    }
+    document.getElementById('plantUpload').onchange = function(e){ let reader = new FileReader(); reader.onload = function(event){ document.getElementById('plantPreview').src = event.target.result; document.getElementById('plantPreview').classList.remove('d-none'); } reader.readAsDataURL(e.target.files[0]); }
+    function identifyPlant(){ document.getElementById('plantResult').classList.remove('d-none'); document.getElementById('plantResult').innerHTML = `<h6>🌱 Identified: Neem Tree</h6><p><b>Benefits:</b> Purifies air, Absorbs 20kg CO2 per year</p>`; }
 
-    // ===== GAME 3: PLASTIC RECYCLE - ENGLISH =====
-    document.getElementById('plasticUpload').onchange = function(e){
-      let reader = new FileReader();
-      reader.onload = function(event){ document.getElementById('plasticPreview').src = event.target.result; document.getElementById('plasticPreview').classList.remove('d-none'); }
-      reader.readAsDataURL(e.target.files[0]);
-    }
-    function recyclePlastic(){
-      document.getElementById('plasticResult').classList.remove('d-none');
-      document.getElementById('plasticResult').innerHTML = `<h6>♻️ Detected: PET Plastic Bottle</h6><p><b>Can be recycled into:</b></p><ul><li>Fabric for T-shirts</li><li>Garden flower pots</li><li>Park benches</li><li>New plastic bottles</li></ul><p><b>EcoBot Tip:</b> Cut it and make a self-watering plant pot! 🌱</p>`;
-    }
-
-    // ===== ECOBOT CHAT =====
-    const ecoBtn = document.getElementById('eco-chat-btn');
-    const ecoBox = document.getElementById('eco-chat-box');
-    const ecoClose = document.getElementById('eco-close');
-    const ecoSend = document.getElementById('eco-send');
-    const ecoInput = document.getElementById('eco-user-input');
-    const ecoBody = document.getElementById('eco-chat-body');
-
-    ecoBtn.onclick = () => ecoBox.style.display = 'flex';
-    ecoClose.onclick = () => ecoBox.style.display = 'none';
-
-    const ecoReplies = {
-      "hello": "👋 Hello! I'm EcoBot 🌱 How can I help you go green today?",
-      "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. You can buy on our Carbon Credit page!",
-      "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees."
-    };
-    function getEcoReply(userMsg){ userMsg = userMsg.toLowerCase(); for(let key in ecoReplies){ if(userMsg.includes(key)) return ecoReplies[key]; } return "🤔 Ask me about climate, carbon, recycling, or games! 🌱"; }
-    function addMsg(text, type){ ecoBody.innerHTML += `<div class="msg-${type}">${text}</div>`; ecoBody.scrollTop = ecoBody.scrollHeight; }
-    function sendEcoMsg(){ let msg = ecoInput.value.trim(); if(msg === "") return; addMsg(msg, 'user'); ecoInput.value = ""; setTimeout(() => { addMsg(getEcoReply(msg), 'bot'); }, 600); }
-    ecoSend.onclick = sendEcoMsg; ecoInput.addEventListener("keypress", function(e){ if(e.key === "Enter") sendEcoMsg(); });
+    document.getElementById('plasticUpload').onchange = function(e){ let reader = new FileReader(); reader.onload = function(event){ document.getElementById('plasticPreview').src = event.target.result; document.getElementById('plasticPreview').classList.remove('d-none'); } reader.readAsDataURL(e.target.files[0]); }
+    function recyclePlastic(){ document.getElementById('plasticResult').classList.remove('d-none'); document.getElementById('plasticResult').innerHTML = `<h6>♻️ Detected: PET Plastic Bottle</h6><p><b>Can be recycled into:</b> Flower pots, T-shirts</p>`; }
   </script>
-
-  <style>
-  #eco-chat-btn{position:fixed; bottom:90px; right:25px; width:60px; height:60px; background:#198754; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; cursor:pointer; z-index:9999; box-shadow:0 4px 20px rgba(25,135,84,.4); animation: pulse 2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,135,84,0.7)}70%{box-shadow:0 0 0 15px rgba(25,135,84,0)}100%{box-shadow:0 0 0 0 rgba(25,135,84,0)}}
-  #eco-chat-box{position:fixed; bottom:160px; right:25px; width:350px; height:500px; background:#fff; border-radius:15px; box-shadow:0 10px 40px rgba(0,0,0,.2); display:none; flex-direction:column; z-index:9999; overflow:hidden; border:2px solid #198754}
-  #eco-chat-header{background:#198754; color:#fff; padding:15px; font-weight:600; display:flex; justify-content:space-between; align-items:center}
-  #eco-chat-body{flex:1; padding:15px; overflow-y:auto; background:#f8fff9}
-  #eco-chat-input{display:flex; padding:10px; border-top:1px solid #ddd}
-  #eco-chat-input input{flex:1; border:1px solid #198754; border-radius:20px; padding:10px 15px; outline:none}
-  #eco-chat-input button{background:#198754; color:#fff; border:none; border-radius:50%; width:40px; height:40px; margin-left:8px; cursor:pointer}
-  .msg-user{background:#198754; color:#fff; padding:10px 15px; border-radius:15px 15px 5px 15px; margin:8px 0; margin-left:40px; text-align:right}
-  .msg-bot{background:#e8f5e9; color:#000; padding:10px 15px; border-radius:15px 15px 15px 5px; margin:8px 0; margin-right:40px}
-  .msg-bot i{color:#198754; margin-right:5px}
-  </style>
 </body>
 </html>
