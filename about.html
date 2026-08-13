@@ -56,7 +56,7 @@
             <div class="text-center mt-4">
                 <h5>🎮 Try Our Eco Games</h5>
                 <p>Learn sustainability while having fun!</p>
-                <a href="#" class="btn btn-success">Play Carbon Footprint Quiz</a>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#quizModal">Play Carbon Footprint Quiz</button>
             </div>
 
         </div>
@@ -201,4 +201,66 @@ function sendEcoMsg(){
 
 ecoSend.onclick = sendEcoMsg;
 ecoInput.addEventListener("keypress", function(e){ if(e.key === "Enter") sendEcoMsg(); });
+  <!-- QUIZ MODAL -->
+<div class="modal fade" id="quizModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">🌱 Carbon Footprint Quiz</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="quiz-body">
+        <!-- Questions will load here -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-success" id="submitQuiz">Submit & See Score</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const quizQuestions = [
+  {q: "1. You usually travel to work by?", options: ["Car alone", "Public transport", "Bike/Walk", "Carpool"], ans: 2},
+  {q: "2. How often do you eat meat?", options: ["Daily", "3-4 times a week", "1-2 times a week", "Rarely/Veg"], ans: 3},
+  {q: "3. Your home electricity comes from?", options: ["Coal/Grid", "Mix", "Mostly Solar", "100% Renewable"], ans: 3},
+  {q: "4. How long are your showers?", options: ["15+ min", "10 min", "5 min", "Under 5 min"], ans: 3},
+  {q: "5. What do you do with food waste?", options: ["Throw in trash", "Sometimes compost", "Always compost", "I don't waste food"], ans: 2},
+  {q: "6. How many new clothes do you buy per month?", options: ["4+", "2-3", "1", "Only when needed"], ans: 3},
+  {q: "7. Do you use single-use plastic?", options: ["Always", "Often", "Rarely", "Never"], ans: 3},
+  {q: "8. How do you heat/cool your home?", options: ["AC/Heater 24/7", "Often", "Only when needed", "Fans + Natural"], ans: 3},
+  {q: "9. Have you planted a tree this year?", options: ["No", "Thinking about it", "1-2 trees", "3+ trees"], ans: 3},
+  {q: "10. Do you buy carbon credits?", options: ["What's that?", "Heard of it", "Sometimes", "Yes, regularly"], ans: 3}
+];
+
+let quizHTML = "";
+quizQuestions.forEach((item, index) => {
+  quizHTML += `<div class="mb-4"><h6>${item.q}</h6>`;
+  item.options.forEach((opt, i) => {
+    quizHTML += `<div class="form-check">
+      <input class="form-check-input" type="radio" name="q${index}" value="${i}" id="q${index}o${i}">
+      <label class="form-check-label" for="q${index}o${i}">${opt}</label>
+    </div>`;
+  });
+  quizHTML += `</div>`;
+});
+document.getElementById('quiz-body').innerHTML = quizHTML;
+
+document.getElementById('submitQuiz').onclick = function(){
+  let score = 0;
+  quizQuestions.forEach((item, index) => {
+    let selected = document.querySelector(`input[name="q${index}"]:checked`);
+    if(selected && parseInt(selected.value) >= item.ans) score++;
+  });
+  
+  let result = "";
+  if(score >= 8) result = "🌍 Eco Champion! Your footprint is super low. Keep inspiring others!";
+  else if(score >= 5) result = "🌿 You're doing great! A few more green habits and you'll be perfect.";
+  else result = "🌱 Good start! Check our tips page to reduce your footprint more.";
+
+  document.getElementById('quiz-body').innerHTML = `<div class="text-center"><h3>Your Score: ${score}/10</h3><p class="lead">${result}</p><a href="credits.html" class="btn btn-warning">Offset Remaining Carbon →</a></div>`;
+  document.getElementById('submitQuiz').style.display = 'none';
+}
+</script>
 </script></body></html>
