@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GreenPulse - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body{font-family:'Heebo', sans-serif;}
+    .text-primary{color:#198754!important}
+    .btn-primary{background:#198754; border-color:#198754}
+    .navbar-brand h2{color:#198754!important; font-weight:800}
+    .service-item{box-shadow:0 0 45px rgba(0,0,0,.08); border-radius:10px}
+    .service-item:hover{background:#198754; color:#fff!important}
+    .modal-custom{display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7); overflow-y:auto}
+    .modal-content-custom{background:#fff; margin:5% auto; padding:30px; border-radius:15px; width:90%; max-width:600px; border:3px solid #198754}
+  </style>
+</head>
+<body>
+
+  <!-- SPINNER HATA DIYA -->
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <h2 class="m-0 text-primary">🌱 GreenPulse</h2>
+    </a>
+    <button id="joinBtn" onclick="openAuth()" class="btn btn-primary py-3 px-4 ms-auto me-4">Join Now</button>
+    <button id="logoutBtn" onclick="logout()" class="btn btn-outline-danger py-3 px-4 ms-auto me-4" style="display:none">Logout</button>
+  </nav>
+
+  <!-- Hero -->
+  <div class="container-fluid p-5 mb-5" style="background: #198754;">
+    <div class="container text-center text-white">
+      <h1 class="display-4">Welcome to GreenPulse 🌱</h1>
+      <p>Sustainability Platform with Games & Dashboard</p>
+      <button onclick="openAuth()" class="btn btn-light py-3 px-5">Join Now</button>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-md-3"><div class="service-item text-center p-4"><i class="fa fa-3x fa-home text-primary mb-3"></i><h5>Carbon Credit</h5></div></div>
+      <div class="col-md-3"><div class="service-item text-center p-4"><i class="fa fa-3x fa-globe text-primary mb-3"></i><h5>Green Investment</h5></div></div>
+      <div class="col-md-3"><div class="service-item text-center p-4"><i class="fa fa-3x fa-book-open text-primary mb-3"></i><h5>Eco Tourism</h5></div></div>
+      <div class="col-md-3"><div onclick="openGames()" class="service-item text-center p-4"><i class="fa fa-3x fa-gamepad text-primary mb-3"></i><h5>Eco Games</h5></div></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboardSection" class="container py-5" style="display:none">
+    <h2 class="text-center mb-4">Welcome <span id="userName" class="text-primary"></span>!</h2>
+    <div class="row">
+      <div class="col-md-4"><div class="p-4 bg-light rounded"><h5>Green Points</h5><h2 id="dashPoints">0</h2></div></div>
+      <div class="col-md-4"><div class="p-4 bg-light rounded"><h5>Carbon Credits</h5><h2 id="dashCredits">0</h2></div></div>
+      <div class="col-md-4"><div class="p-4 bg-light rounded"><h5>Trees</h5><h2 id="dashTrees">0</h2></div></div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="modal-custom">
+    <div class="modal-content-custom">
+      <span onclick="closeAuth()" style="float:right; font-size:28px; cursor:pointer">&times;</span>
+      <h3>Join GreenPulse</h3>
+      <input type="text" id="authName" class="form-control mb-3" placeholder="Full Name">
+      <input type="email" id="authEmail" class="form-control mb-3" placeholder="Email">
+      <input type="password" id="authPassword" class="form-control mb-3" placeholder="Password">
+      <button class="btn btn-primary w-100" onclick="signup()">Create Account</button>
+    </div>
+  </div>
+
+  <!-- GAME MODAL -->
+  <div id="gameModal" class="modal-custom">
+    <div class="modal-content-custom">
+      <span onclick="closeGames()" style="float:right; font-size:28px; cursor:pointer">&times;</span>
+      <h3>Eco Games</h3>
+      <button class="btn btn-primary w-100 mb-2" onclick="alert('You earned 10 Points!')">Play Carbon Quiz</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function openAuth(){ document.getElementById('authModal').style.display='block'; }
+    function closeAuth(){ document.getElementById('authModal').style.display='none'; }
+    function openGames(){ document.getElementById('gameModal').style.display='block'; }
+    function closeGames(){ document.getElementById('gameModal').style.display='none'; }
+    function signup(){ let name=document.getElementById('authName').value; let user = {name:name, points:0, credits:0, trees:0}; localStorage.setItem('gp_user', JSON.stringify(user)); alert("Welcome " + name); closeAuth(); loadDashboard(); }
+    function logout(){ localStorage.removeItem('gp_user'); location.reload(); }
+    function loadDashboard(){ let user = JSON.parse(localStorage.getItem('gp_user')); if(user){ document.getElementById('dashboardSection').style.display='block'; document.getElementById('userName').innerText = user.name; document.getElementById('dashPoints').innerText = user.points; document.getElementById('joinBtn').style.display='none'; document.getElementById('logoutBtn').style.display='block'; } }
+    window.onload = loadDashboard;
+  </script>
+</body>
+</html>
