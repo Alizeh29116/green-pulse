@@ -1,102 +1,106 @@
 <style>
-/* ===== ABOUT PAGE GREEN THEME ===== */
-.about-section { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 80px 0; }
-.about-img { border-radius: 20px; box-shadow: 0 15px 40px rgba(22, 163, 74, 0.2); border: 6px solid #fff; transition: 0.4s; }
-.about-img:hover { transform: scale(1.02); }
-.text-primary { color: #16a34a !important; } /* Green ko thora dark kiya */
-.btn-primary { background: #16a34a; border-color: #16a34a; border-radius: 50px; font-weight: 600; transition: all 0.3s; }
-.btn-primary:hover { background: #15803d; border-color: #15803d; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(22,163,74,0.3); }
+/* ===== GEN-Z GREEN THEME FOR ABOUT ===== */
+.about-hero { height: 350px; background: url('https://images.pexels.com/photos/1671325/pexels-photo-1671325.jpeg?auto=compress&w=1600') center/cover no-repeat; border-radius: 0 0 30px 30px; margin-bottom: 60px; position: relative; }
+.about-hero::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(22,163,74,0.6)); border-radius: 0 0 30px 30px; }
+.about-hero h1 { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: #fff; font-size: 42px; font-weight: 800; text-align: center; z-index: 2; }
 
-.feature-item { background: #fff; padding: 12px 15px; border-radius: 10px; border-left: 4px solid #16a34a; margin-bottom: 10px; transition: 0.3s; }
-.feature-item:hover { background: #f0fdf4; transform: translateX(5px); }
-.feature-item i { color: #16a34a; }
+body { font-family: 'Inter', sans-serif; line-height: 1.8; color: #333; }
+.about-section h1 { font-size: 40px; font-weight: 800; color: #14532d; line-height: 1.2; }
+.about-section h6 { font-size: 14px; font-weight: 700; letter-spacing: 2px; color: #16a34a; }
+.about-section p { font-size: 17px; color: #4b5563; }
 
-.vision-box { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #fff; padding: 25px; border-radius: 15px; margin: 25px 0; box-shadow: 0 10px 30px rgba(22,163,74,0.3); }
-.vision-box h5 { color: #fff; }
+.feature-item { background: #fff; padding: 15px 20px; border-radius: 12px; border-left: 5px solid #16a34a; margin-bottom: 12px; font-size: 16px; font-weight: 500; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+.feature-item:hover { transform: translateX(8px); background: #f0fdf4; }
+.feature-item i { color: #16a34a; margin-right: 10px; }
 
-.why-section { background: #fff; }
-.service-item { background: #f0fdf4; border: 2px solid #dcfce7; border-radius: 20px; transition: all 0.4s ease; cursor: pointer; }
-.service-item:hover { background: #fff; border-color: #16a34a; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(22,163,74,0.15); }
-.service-item i { background: #dcfce7; width: 80px; height: 80px; line-height: 80px; border-radius: 50%; display: inline-block; }
+.vision-box { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #fff; padding: 35px; border-radius: 20px; margin: 30px 0; text-align: center; box-shadow: 0 10px 30px rgba(22,163,74,0.25); }
+.vision-box h5 { font-size: 24px; font-weight: 700; margin-bottom: 15px; }
+.vision-box p { font-size: 18px; color: #ecfdf5; margin: 0; }
+
+.btn-green-big { display: inline-block; background: #16a34a; color: #fff; border-radius: 50px; padding: 18px 50px; font-size: 18px; font-weight: 700; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 20px rgba(22,163,74,0.3); }
+.btn-green-big:hover { background: #15803d; transform: translateY(-4px); color: #fff; }
+.btn-center { text-align: center; margin-top: 20px; }
+
+.why-section { background: #f0fdf4; padding: 80px 0; }
+.service-item { background: #fff; border: 2px solid #dcfce7; border-radius: 20px; padding: 35px 25px; transition: all 0.4s ease; height: 100%; }
+.service-item:hover { border-color: #16a34a; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(22,163,74,0.12); }
+.service-item i { font-size: 45px; color: #16a34a; background: #dcfce7; width: 80px; height: 80px; line-height: 80px; border-radius: 50%; margin-bottom: 20px; }
+.service-item h5 { font-size: 20px; font-weight: 700; color: #14532d; }
+.service-item p { font-size: 15px; color: #4b5563; }
 </style>
 
+<!-- HERO BANNER SMALL -->
+<div class="about-hero">
+    <h1>About GreenPulse</h1>
+</div>
+
 <!-- ABOUT SECTION -->
-<div class="container-xxl about-section">
+<div class="container-xxl about-section pb-5">
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
-                <img class="img-fluid about-img" src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&w=1260" alt="Sustainable Planet" />
+                <img class="img-fluid rounded-4 shadow-lg" src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&w=1260" alt="Sustainable Planet" style="border: 6px solid #fff;" />
             </div>
             <div class="col-lg-6">
-                <h6 class="text-primary text-uppercase fw-bold">About GreenPulse</h6>
-                <h1 class="mb-4 fw-bold">Building a Greener Future, One Click at a Time</h1>
-                <p class="mb-15 fs-9">
-                    GreenPulse is not just a website - it's a movement. We believe that sustainability should be simple, engaging, and accessible for everyone. 
-                    Our mission is to empower individuals and businesses to make environmentally conscious financial decisions that create real impact.
+                <h6 class="text-uppercase">About GreenPulse</h6>
+                <h1 class="mb-4">Building a Greener Future, One Click at a Time</h1>
+                <p class="mb-4">
+                    GreenPulse is not just a website - it's a movement. We believe sustainability should be simple, engaging, and accessible for everyone. 
+                    Our mission is to empower you to make environmentally conscious financial decisions that create real impact.
                 </p>
-                <p class="mb-15">
-                    Through interactive tools, education, and gamification, we make it easy for you to understand your carbon footprint, invest in green projects, 
+                <p class="mb-4">
+                    Through interactive tools, education, and gamification, we make it easy to track your carbon footprint, invest in green projects, 
                     and adopt eco-friendly habits in daily life.
                 </p>
                 
                 <div class="row gy-3 gx-4 mb-4">
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>Carbon Credit Marketplace</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>Green Investment Strategies</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>Interactive Eco Games</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>24/7 EcoBot Assistant</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>Eco Tourism Guides</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item"><i class="fa fa-check me-2"></i>Recycling & Waste Solutions</div>
-                    </div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>Carbon Credit Marketplace</div></div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>Green Investment Strategies</div></div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>Interactive Eco Games</div></div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>24/7 EcoBot Assistant</div></div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>Eco Tourism Guides</div></div>
+                    <div class="col-sm-6"><div class="feature-item"><i class="fa fa-check"></i>Recycling & Waste Solutions</div></div>
                 </div>
 
                 <div class="vision-box">
-                    <h5 class="mb-46"><i class="fa fa-leaf me-28"></i> Our Vision</h5>
-                    <p class="mb-0">To create a global community where every financial decision contributes to a healthier planet for future generations.</p>
+                    <h5><i class="fa fa-leaf me-2"></i> Our Vision</h5>
+                    <p>To create a global community where every financial decision contributes to a healthier planet for future generations.</p>
                 </div>
                 
-                <a class="btn btn-primary py-56 px-62 mt-56" href="credits.html">Start Your Green Journey <i class="fa fa-arrow-right ms-24"></i></a>
+                <div class="btn-center">
+                    <a class="btn-green-big" href="credits.html">Start Your Green Journey <i class="fa fa-arrow-right ms-2"></i></a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- WHY CHOOSE US SECTION -->
-<div class="container-xxl why-section py-5">
+<div class="container-xxl why-section">
     <div class="container">
         <div class="text-center mb-5">
-            <h6 class="text-primary text-uppercase fw-bold">Why Choose Us</h6>
-            <h1 class="mb-4 fw-bold">Learn, Play, and Make an Impact</h1>
+            <h6 class="text-uppercase" style="color:#16a34a; font-weight:700; letter-spacing:2px;">Why Choose Us</h6>
+            <h1 style="font-size: 40px; font-weight: 800; color: #14532d;">Learn, Play, and Make an Impact</h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
-                <div class="service-item text-center p-4">
-                    <i class="fa fa-3x fa-gamepad text-primary mb-4"></i>
-                    <h5 class="mb-3 fw-bold">Learn Through Play</h5>
+                <div class="service-item text-center">
+                    <i class="fa fa-gamepad"></i>
+                    <h5 class="mb-3">Learn Through Play</h5>
                     <p>Our 3 interactive Eco Games make sustainability fun. Earn Green Points while learning about climate, recycling, and plants.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="service-item text-center p-4">
-                    <i class="fa fa-3x fa-robot text-primary mb-4"></i>
-                    <h5 class="mb-3 fw-bold">EcoBot Assistant</h5>
+                <div class="service-item text-center">
+                    <i class="fa fa-robot"></i>
+                    <h5 class="mb-3">EcoBot Assistant</h5>
                     <p>Stuck on a question? Ask EcoBot anything about climate change, carbon credits, solar energy, or recycling - instantly.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="service-item text-center p-4">
-                    <i class="fa fa-3x fa-hand-holding-usd text-primary mb-4"></i>
-                    <h5 class="mb-3 fw-bold">Real Financial Impact</h5>
+                <div class="service-item text-center">
+                    <i class="fa fa-hand-holding-usd"></i>
+                    <h5 class="mb-3">Real Financial Impact</h5>
                     <p>Move beyond awareness. Invest in verified green projects and buy carbon credits to directly offset your emissions.</p>
                 </div>
             </div>
