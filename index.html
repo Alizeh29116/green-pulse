@@ -245,6 +245,7 @@
       document.getElementById('plasticResult').innerHTML = `<h6>♻️ Detected: PET Plastic Bottle</h6><p><b>Can be recycled into:</b></p><ul><li>Fabric for T-shirts</li><li>Garden flower pots</li><li>Park benches</li><li>New plastic bottles</li></ul><p><b>EcoBot Tip:</b> Cut it and make a self-watering plant pot! 🌱</p>`;
     }
 // ===== ECOBOT CHAT =====
+window.addEventListener('load', function() { // YE LINE ADD KI
     const ecoBtn = document.getElementById('eco-chat-btn');
     const ecoBox = document.getElementById('eco-chat-box');
     const ecoClose = document.getElementById('eco-close');
@@ -292,12 +293,11 @@
       }, 600);
     }
 
-    // YE 2 LINES SABSE IMPORTANT HAIN
     ecoSend.addEventListener('click', sendEcoMsg);
     ecoInput.addEventListener("keypress", function(e){
       if(e.key === "Enter") sendEcoMsg();
     });
-  
+}); // YE LINE ADD KI
   </script>
 
   <style>
