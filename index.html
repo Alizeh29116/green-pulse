@@ -258,13 +258,27 @@
 
     const ecoReplies = {
       "hello": "👋 Hello! I'm EcoBot 🌱 How can I help you go green today?",
-      "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. You can buy on our Carbon Credit page!",
-      "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees."
+      "hi": "👋 Hi there! Ask me about climate change, carbon credits, recycling!",
+      "climate change": "🌍 Biggest sources of Climate Change: 1. Burning Fossil Fuels - Coal, Oil, Gas 2. Deforestation 3. Agriculture & Livestock 4. Industrial Processes. Want tips to reduce it?",
+      "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. You can buy/sell them on our Carbon Credit page to offset your footprint!",
+      "carbon footprint": "👣 Carbon Footprint = Total CO2 you produce. You can reduce it by using solar, public transport, and planting trees!",
+      "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees. Plastic takes 450 years to decompose.",
+      "green investment": "💚 Green Investment = Investing in renewable energy, EVs, sustainable companies. Good for planet + profit!",
+      "solar": "☀️ Solar Power is clean energy from sun. 1 home solar panel can save 3-4 tons CO2 per year!",
+      "tree": "🌳 1 mature tree absorbs ~22kg CO2 per year and provides oxygen for 2 people!",
+      "plastic": "🚫 Plastic pollution harms oceans. Use cloth bags, steel bottles, and recycle PET bottles into fabric!",
+      "water": "💧 Save water: Fix leaks, shorter showers, and collect rainwater for plants.",
+      "game": "🎮 Play Eco Games on our website to earn Green Points! Try Carbon Quiz, Plant ID, and Plastic Recycle.",
+      "thank you": "🙏 You're welcome! Together we can make Earth greener 🌱"
     };
-    function getEcoReply(userMsg){ userMsg = userMsg.toLowerCase(); for(let key in ecoReplies){ if(userMsg.includes(key)) return ecoReplies[key]; } return "🤔 Ask me about climate, carbon, recycling, or games! 🌱"; }
-    function addMsg(text, type){ ecoBody.innerHTML += `<div class="msg-${type}">${text}</div>`; ecoBody.scrollTop = ecoBody.scrollHeight; }
-    function sendEcoMsg(){ let msg = ecoInput.value.trim(); if(msg === "") return; addMsg(msg, 'user'); ecoInput.value = ""; setTimeout(() => { addMsg(getEcoReply(msg), 'bot'); }, 600); }
-    ecoSend.onclick = sendEcoMsg; ecoInput.addEventListener("keypress", function(e){ if(e.key === "Enter") sendEcoMsg(); });
+
+    function getEcoReply(userMsg){
+      userMsg = userMsg.toLowerCase();
+      for(let key in ecoReplies){
+        if(userMsg.includes(key)) return ecoReplies[key];
+      }
+      return "🤔 I'm EcoBot 🌱 I can answer about climate, carbon credits, recycling, green investment, and games. Try asking: 'What causes climate change?'";
+    }
   </script>
 
   <style>
