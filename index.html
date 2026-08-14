@@ -244,8 +244,7 @@
       document.getElementById('plasticResult').classList.remove('d-none');
       document.getElementById('plasticResult').innerHTML = `<h6>♻️ Detected: PET Plastic Bottle</h6><p><b>Can be recycled into:</b></p><ul><li>Fabric for T-shirts</li><li>Garden flower pots</li><li>Park benches</li><li>New plastic bottles</li></ul><p><b>EcoBot Tip:</b> Cut it and make a self-watering plant pot! 🌱</p>`;
     }
-
-    // ===== ECOBOT CHAT =====
+// ===== ECOBOT CHAT =====
     const ecoBtn = document.getElementById('eco-chat-btn');
     const ecoBox = document.getElementById('eco-chat-box');
     const ecoClose = document.getElementById('eco-close');
@@ -259,16 +258,14 @@
     const ecoReplies = {
       "hello": "👋 Hello! I'm EcoBot 🌱 How can I help you go green today?",
       "hi": "👋 Hi there! Ask me about climate change, carbon credits, recycling!",
-      "climate change": "🌍 Biggest sources of Climate Change: 1. Burning Fossil Fuels - Coal, Oil, Gas 2. Deforestation 3. Agriculture & Livestock 4. Industrial Processes. Want tips to reduce it?",
-      "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. You can buy/sell them on our Carbon Credit page to offset your footprint!",
-      "carbon footprint": "👣 Carbon Footprint = Total CO2 you produce. You can reduce it by using solar, public transport, and planting trees!",
-      "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees. Plastic takes 450 years to decompose.",
-      "green investment": "💚 Green Investment = Investing in renewable energy, EVs, sustainable companies. Good for planet + profit!",
+      "climate change": "🌍 Biggest sources of Climate Change: 1. Burning Fossil Fuels - Coal, Oil, Gas 2. Deforestation 3. Agriculture & Livestock 4. Industrial Processes.",
+      "carbon credit": "🌍 1 Carbon Credit = 1 Ton CO2 reduced. You can buy/sell them on our Carbon Credit page!",
+      "carbon footprint": "👣 Carbon Footprint = Total CO2 you produce. Reduce it by using solar, public transport, and planting trees!",
+      "recycling": "♻️ 3Rs: Reduce, Reuse, Recycle! Recycling 1 ton paper saves 17 trees.",
+      "green investment": "💚 Green Investment = Investing in renewable energy, EVs, sustainable companies.",
       "solar": "☀️ Solar Power is clean energy from sun. 1 home solar panel can save 3-4 tons CO2 per year!",
       "tree": "🌳 1 mature tree absorbs ~22kg CO2 per year and provides oxygen for 2 people!",
-      "plastic": "🚫 Plastic pollution harms oceans. Use cloth bags, steel bottles, and recycle PET bottles into fabric!",
-      "water": "💧 Save water: Fix leaks, shorter showers, and collect rainwater for plants.",
-      "game": "🎮 Play Eco Games on our website to earn Green Points! Try Carbon Quiz, Plant ID, and Plastic Recycle.",
+      "plastic": "🚫 Plastic pollution harms oceans. Use cloth bags, steel bottles, and recycle PET bottles!",
       "thank you": "🙏 You're welcome! Together we can make Earth greener 🌱"
     };
 
@@ -277,8 +274,30 @@
       for(let key in ecoReplies){
         if(userMsg.includes(key)) return ecoReplies[key];
       }
-      return "🤔 I'm EcoBot 🌱 I can answer about climate, carbon credits, recycling, green investment, and games. Try asking: 'What causes climate change?'";
+      return "🤔 I'm EcoBot 🌱 Try asking: 'What causes climate change?' or 'What is recycling?'";
     }
+
+    function addMsg(text, type){
+      ecoBody.innerHTML += `<div class="msg-${type}">${text}</div>`;
+      ecoBody.scrollTop = ecoBody.scrollHeight;
+    }
+
+    function sendEcoMsg(){
+      let msg = ecoInput.value.trim();
+      if(msg === "") return;
+      addMsg(msg, 'user');
+      ecoInput.value = "";
+      setTimeout(() => {
+        addMsg(getEcoReply(msg), 'bot');
+      }, 600);
+    }
+
+    // YE 2 LINES SABSE IMPORTANT HAIN
+    ecoSend.addEventListener('click', sendEcoMsg);
+    ecoInput.addEventListener("keypress", function(e){
+      if(e.key === "Enter") sendEcoMsg();
+    });
+  
   </script>
 
   <style>
