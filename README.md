@@ -1,40 +1,45 @@
-# 🌱 GreenPulse - AI Powered Sustainability Platform
+# 🌱 GreenPulse - Online Sustainability Platform
 
-**Live Website:** https://alizeh29116.github.io/green-pulse/
+**GreenPulse** is an interactive web platform that empowers users to make environmentally conscious financial decisions through education, tools, and gamification.
 
-GreenPulse is a modern, responsive web platform that empowers users to make environmentally conscious financial decisions through education, green investment tools, carbon tracking, and an AI assistant.
+Live Demo: [https://alizeh29116.github.io/green-pulse/](https://alizeh29116.github.io/green-pulse/)
 
----
+## ✨ Features
 
-## ✨ Key Features
+### 1. **Educational Sections**
+- **Carbon Credit Marketplace**: Learn to calculate and purchase carbon credits to offset emissions
+- **Green Investment**: Strategies for sustainable investing in renewable energy and ESG companies
+- **Eco Tourism**: Discover sustainable travel destinations around the world
 
-### 1. **AI Virtual Assistant - EcoBot**
-An interactive chatbot available on every page. Guides users about climate change, carbon credits, recycling, green investment, and sustainability. Works 100% offline with 50+ pre-trained eco responses.
+### 2. **Interactive Eco Games** 🎮
+Earn Green Points while learning about sustainability:
+1. **Carbon Footprint Quiz**: 5-question quiz about CO2, recycling, and green energy
+2. **Plant Identifier**: Upload a plant photo to get info about benefits and care tips
+3. **Plastic Recycler AI**: Upload plastic item photos and get creative recycling ideas
 
-### 2. **Green Finance Hub**
-Explore and learn about sustainable investment opportunities like Solar Projects, Wind Energy, and Reforestation. Helps users align their portfolio with environmental impact.
+### 3. **EcoBot Assistant** 🤖
+AI-powered chatbot that answers questions about:
+- Climate Change causes and solutions
+- Carbon Credits and Carbon Footprint
+- Recycling, Solar Energy, and Green Investment
+- General sustainability tips
 
-### 3. **Carbon Credit Marketplace**
-Understand and calculate carbon footprint. Learn how 1 Carbon Credit = 1 Ton of CO2 reduced and how to become carbon neutral.
+### 4. **Responsive Design**
+- Fully mobile and desktop friendly
+- Beautiful carousel with high-quality sustainability images
+- Smooth animations and modern UI with Bootstrap 5
 
-### 4. **Eco Tourism**
-Discover eco-friendly travel destinations including Forest Retreats, Mountain Eco Lodges, and Beach Cleanup programs. Promotes sustainable tourism.
+## 🛠️ Tech Stack
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Frameworks**: Bootstrap 5.0, jQuery 3.4.1
+- **Libraries**: Owl Carousel 2, Font Awesome 5, Bootstrap Icons
+- **Hosting**: GitHub Pages
 
-### 5. **Eco Games & Education**
-Interactive learning modules and games to increase awareness about sustainability in a fun way.
+## 📸 Screenshots
+![Homepage Carousel](https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg)
+![Eco Games Modal](https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg)
 
----
-
-## 🎨 Design & Tech Stack
-
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Framework:** Bootstrap 5.0
-- **Icons:** Font Awesome 5, Bootstrap Icons
-- **Fonts:** Google Fonts - Heebo, Nunito
-- **Carousel:** OwlCarousel2
-- **Theme:** Green + Nature focused UI with plant imagery and light green background `#f8fff9`
-- **Responsive:** Fully mobile friendly
-
----
-
-## 📁 Project Structure
+## 🚀 How to Run Locally
+1. Clone this repository
+    ```bash
+    git clone https://github.com/alizeh29116/green-pulse.git
